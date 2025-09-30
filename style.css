@@ -1,69 +1,200 @@
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-h1 {
-  color: darkblue;
-   margin-bottom: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background: darkblue;
-  color: white;
-  cursor: pointer;
-}
-
-
-.container {
+  font-family: 'Outfit', sans-serif;
+  background-color: hsl(215, 51%, 70%);
+  color: hsl(0, 0%, 100%);
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 300px;
-  padding: 15px;
-  transition: transform 0.2s;
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: hsl(215, 51%, 21%); 
+  color: hsl(0, 0%, 100%);
+  position: relative;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
+.header .logo img {
+  height: 80px;
 }
 
-.card h2 {
-  margin: 15px 0 10px;
-  font-size: 20px;
-  color: #333;
+.header .nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-.card p {
-  font-size: 14px;
-  color: #666;
+.header .nav a {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  transition: color 0.3s ease;
 }
 
-.card button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background: darkblue;
-  color: white;
-  border-radius: 5px;
+.header .nav a:hover {
+  color: hsl(178, 100%, 50%); 
+}
+
+
+.header-btn .btn {
+  background: hsl(215, 51%, 70%); 
+  color: hsl(217, 54%, 11%);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.header-btn .btn:hover {
+  background: hsl(178, 100%, 50%); 
+  color: hsl(0, 0%, 100%);
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
   cursor: pointer;
 }
 
-.card button:hover {
-  background: navy;
+/* ====== CONTAINER ====== */
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ====== CARD ====== */
+.card {
+  background-color: hsl(216, 50%, 16%); /* Blue 900 */
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 50px rgba(0,0,0,0.6);
+}
+
+/* ====== CARD IMAGE ====== */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* ====== TITULO ====== */
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: hsl(0, 0%, 100%);
+  transition: color 0.3s;
+}
+
+.card h3:hover {
+  color: hsl(178, 100%, 50%); /* Cyan 400 */
+  cursor: pointer;
+}
+
+/* ====== DESCRICAO ====== */
+.card p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(215, 51%, 70%); /* Blue 500 */
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ====== ELIXIR ====== */
+.card p:last-child {
+  font-weight: 600;
+  color: hsl(178, 100%, 50%);
+  font-size: 1rem;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .header .nav ul {
+    gap: 1rem;
+  }
+
+  #container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .nav {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .header .nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .header .nav a {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  .header.active .nav {
+    display: flex; 
+  }
+
+  .menu-toggle {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: hsl(178, 100%, 50%);
+    display: block;
+  }
+
+  #container {
+    grid-template-columns: 1fr; 
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
 }
