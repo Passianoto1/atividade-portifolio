@@ -10,35 +10,94 @@
     <div>
 
         <h1 id="titulo">Olá, Mundo!</h1>
-  <button onclick="mudarTexto()">Clique aqui</button>
 
   <h1>Exemplo de Cards</h1>
 
-  <div class="container">
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Imagem 1">
-      <h2>Título do Card 1</h2>
-      <p>Descrição breve sobre o conteúdo do card.</p>
-      <button>Saiba mais</button>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Imagem 2">
-      <h2>Título do Card 2</h2>
-      <p>Outro exemplo de descrição de card.</p>
-      <button>Saiba mais</button>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="Imagem 3">
-      <h2>Título do Card 3</h2>
-      <p>Mais uma descrição de exemplo.</p>
-      <button>Saiba mais</button>
-    </div>
+  <div id="container">
   </div>
 
     </div>
+      
+     <script>
+      const dados = [
+  {
+    "nome": "Cavaleiro",
+    "descricao": "Um guerreiro robusto com espada afiada e coragem infinita.",
+    "imagem": "https://2.bp.blogspot.com/-giVBXji3lmk/WQExQMFbAEI/AAAAAAAAzd8/4I2McpmluN0a4jQ7_4ZG2gyb4-etqK5BgCLcB/s1600/cavaleiro-clash-royale-carta.png",
+    "elixir": 3
+  },
+  {
+    "nome": "Arqueiras",
+    "descricao": "Duas arqueiras rápidas e precisas, atacam à distância.",
+    "imagem": "https://2.bp.blogspot.com/-N9yfj4eLVgk/WQExOrDl2II/AAAAAAAAzdI/sX8P1ZCeVdoAEZfh5ejxvoc78N4u5FXnwCLcB/s1600/arqueiras-clash-royale.png",
+    "elixir": 3
+  },
+  {
+    "nome": "Gigante",
+    "descricao": "Um tanque enorme que vai direto para construções inimigas.",
+    "imagem": "https://2.bp.blogspot.com/-w01kph8d4jI/WQExSYUrHVI/AAAAAAAAzfM/PH0XRHnrQSUti100RL9fZwhJF7grWk-AACLcB/s1600/gigante-clash-royale-card.png",
+    "elixir": 5
+  },
+  {
+    "nome": "Mago",
+    "descricao": "Dispara bolas de fogo que queimam inimigos em área.",
+    "imagem": "https://4.bp.blogspot.com/-ayolU8UXcNo/WQExTxbkeKI/AAAAAAAAzgE/nRtnu-QFN9ESjWRzhwMj40GwTfcwvm2cACLcB/s1600/mago-clash-royale.png",
+    "elixir": 5
+  },
+  {
+    "nome": "Bruxa",
+    "descricao": "Invoca esqueletos e lança magias sombrias de área.",
+    "imagem": "https://4.bp.blogspot.com/-jYcsFOil1Kw/WQExPVoEN4I/AAAAAAAAzdk/fwG-X_LiGykSV9Gr3Vn_LbkYfnn08dTswCLcB/s1600/bruxa-clash-royale.png",
+    "elixir": 5
+  },
+  {
+    "nome": "Dragão Bebê",
+    "descricao": "Um pequeno dragão que cospe fogo em área.",
+    "imagem": "https://3.bp.blogspot.com/-7He-SnfbSG4/WQExQj-nSfI/AAAAAAAAzeQ/2OTLSNu1RrUvX4H9ECrP3x_0MOBlUGNOQCLcB/s1600/dragao-bebe-baby_dragon-clash-royale.png",
+    "elixir": 4
+  },
+  {
+    "nome": "Príncipe",
+    "descricao": "Corre com sua lança causando dano devastador.",
+    "imagem": "https://4.bp.blogspot.com/-dOvCRIzkRXw/WQExU2gCWuI/AAAAAAAAzgk/7PUuvhaLm8Mkn3iSbjlnmQIb-LaM_7HRQCLcB/s1600/principe-clash-royale-carta-epica.png",
+    "elixir": 5
+  },
+  {
+    "nome": "P.E.K.K.A",
+    "descricao": "Uma máquina de combate imbatível com ataques poderosos.",
+    "imagem": "https://3.bp.blogspot.com/-KQJmORs2zWw/WQExOQRLMTI/AAAAAAAAzdE/dgN4LXqW72EB-XGshDnaSVt4gCk7W1ntwCLcB/s1600/PEKKA-clash-royale-carta-epica.png",
+    "elixir": 7
+  },
+  {
+    "nome": "Mosqueteira",
+    "descricao": "Atira projéteis de longo alcance com precisão letal.",
+    "imagem": "https://2.bp.blogspot.com/-eMmF2Z16ex8/WQExUmBFdnI/AAAAAAAAzgc/i-YwpbTxeyAG8hu4UslrNx-vWiWMM4-rgCLcB/s1600/mosqueteira-clash-royale-rara-carta.png",
+    "elixir": 4
+  },
+  {
+    "nome": "Esqueletos",
+    "descricao": "Três esqueletinhos rápidos que distraem e incomodam.",
+    "imagem": "https://2.bp.blogspot.com/-Dsxy-cphfBM/WQExRc7iTmI/AAAAAAAAzeo/EID-vfe0CuErv2oZVln1qWctqIwRPGvjwCLcB/s1600/esqueletos-clash-royale.png",
+    "elixir": 1
+  }
+]
+console.log(dados)
+const container = document.getElementById("container");
 
+    dados.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <img src="${item.imagem}" alt="${item.nome}">
+        <h3>${item.nome}</h3>
+        <p>${item.descricao}</p>
+        <p>Elixir: ${item.elixir}</p>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
      <script src="index.js"></script>
 </body>
 </html>

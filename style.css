@@ -1,69 +1,77 @@
+/* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-h1 {
-  color: darkblue;
-   margin-bottom: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background: darkblue;
-  color: white;
-  cursor: pointer;
-}
-
-
-.container {
+  font-family: 'Outfit', sans-serif;
+  background-color: hsl(217, 54%, 11%); /* Blue 950 */
+  color: hsl(0, 0%, 100%);
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 300px;
-  padding: 15px;
-  transition: transform 0.2s;
-}
-
-.card img {
+/* ====== CONTAINER ====== */
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
   width: 100%;
-  border-radius: 10px;
 }
 
-.card h2 {
-  margin: 15px 0 10px;
-  font-size: 20px;
-  color: #333;
-}
-
-.card p {
-  font-size: 14px;
-  color: #666;
-}
-
-.card button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background: darkblue;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.card button:hover {
-  background: navy;
+/* ====== CARD ====== */
+.card {
+  background-color: hsl(216, 50%, 16%); /* Blue 900 */
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 50px rgba(0,0,0,0.6);
+}
+
+/* ====== CARD IMAGE ====== */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* ====== TITULO ====== */
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: hsl(0, 0%, 100%);
+  transition: color 0.3s;
+}
+
+.card h3:hover {
+  color: hsl(178, 100%, 50%); /* Cyan 400 */
+  cursor: pointer;
+}
+
+/* ====== DESCRICAO ====== */
+.card p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(215, 51%, 70%); /* Blue 500 */
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ====== ELIXIR ====== */
+.card p:last-child {
+  font-weight: 600;
+  color: hsl(178, 100%, 50%);
+  font-size: 1rem;
 }
